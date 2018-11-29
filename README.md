@@ -1,2 +1,3 @@
 # p2p-chat
-# test atom
+test atom
+This is my first serious github project.
