@@ -4,9 +4,13 @@
 Created on Mon Nov 26 20:36:15 2018
 
 @author: genius
+p2p (not use server)
+color text
+my first chat
+сheck ip
 """
 
 import client
 import server
 import threading as th
-import time 
+import time
