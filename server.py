@@ -5,27 +5,33 @@ Created on Mon Nov 19 15:50:18 2018
 
 @author: genius
 """
-
+#server part
 import socket
 
-
-#server part
-sock = socket.socket()
-sock.bind(('', 9090))
-sock.listen(10)
-now, addr = sock.accept()
-
-print('connected:', addr)
-
-while True:
-    now.settimeout(30)
-    data = now.recv(16384)
-    data = data.decode("utf-8")
-    if not data:
-        print("No data")
-        now.close()
-        break
-    print(": "+ data)
+HOST = "" # localhost
+PORT = 9090
+srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
-input()
+
+def server():
+    srv.bind((HOST, PORT))
+    msg=str()
+
+    while msg!='exit':
+        print("Слушаю порт: "+ str(PORT))
+        srv.listen(1)
+        sock, addr = srv.accept()
+        print("Connect accept to " + str(addr))
+
+        while msg!='exit':
+            tmp = sock.recv(1024)
+            if not tmp:
+                break
+            msg = tmp.decode("utf-8")
+            print("Loop at %s:%s:" % addr, msg)
+            sock.send(msg.encode("utf-8"))
+
+        sock.close()
+
+server()
