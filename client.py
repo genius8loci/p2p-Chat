@@ -7,14 +7,20 @@ Created on Mon Nov 26 20:33:46 2018
 """
 #client part
 import socket
+from func import *
 
-HOST = "localhost" # удаленный компьютер (localhost)
+check()
+
+HOST = host() # удаленный компьютер (localhost)
 PORT = 9090 # порт на удаленном компьютере
 msg=str()
 while msg!='exit':
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((HOST, PORT))
-    msg=input(": ")
+    while True:
+        msg=input(": ")
+        if msg:
+            break
     sock.send(msg.encode("utf-8"))
     result = sock.recv(1024).decode("utf-8")
     if result==msg:
