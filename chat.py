@@ -10,12 +10,3 @@ my first chat
 сheck ip
 """
 import time
-import subprocess
-
-program = ['python.exe', '.py']
-print("Hello Valle")
-#process = subprocess.Popen(program)
-print("<3")
-#code = process.wait()
-
-#print(code) # 0

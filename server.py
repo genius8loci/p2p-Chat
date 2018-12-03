@@ -9,7 +9,7 @@ Created on Mon Nov 19 15:50:18 2018
 import socket
 from func import *
 
-HOST = host() # enter to localhost
+HOST = host(__file__) # enter to localhost
 PORT = 9090
 srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
